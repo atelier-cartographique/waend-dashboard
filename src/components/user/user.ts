@@ -33,7 +33,7 @@ const render =
         return (
             DIV({ className: 'user' },
                 H1({}, queries.getUserName()),
-                DIV({}, ...kv),
+                DIV({ className: 'attributes' }, ...kv),
                 addAttribute)
         );
     };

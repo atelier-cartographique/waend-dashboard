@@ -1,9 +1,9 @@
 
 import queries from '../../queries/user';
-import { DIV, H1, A, UL, LI, BUTTON } from "../elements";
+import { DIV, H1, A, UL, LI } from "../elements";
 import { Group } from "waend-lib/defs";
 
-const addMap = BUTTON({ className: 'add' }, A({ href: '/edit/new' }, "+ add map"));
+const addMap = DIV({ className: 'add-map' }, A({ href: '/edit/new' }, "create map"));
 
 const renderMapItem =
     (group: Group) => (
