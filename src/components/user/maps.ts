@@ -1,16 +1,23 @@
 
 import queries from '../../queries/user';
-import { DIV, H1, A, UL, LI } from "../elements";
+import { DIV, H1, A, UL, LI, SPAN } from "../elements";
 import { Group } from "waend-lib/defs";
 
-const addMap = DIV({ className: 'add-map' }, A({ href: '/edit/new' }, "create map"));
+const addMap = LI({ className: 'add-map' }, A({ href: '/edit/new' }, "create map"));
 
 const renderMapItem =
     (group: Group) => (
         LI({ className: 'group-item' },
             A({
                 href: `/edit/${group.id}`,
-            }, group.getData().name)));
+                className: 'edit-map',
+            }, 'edit'),
+            A({
+                href: `/view/${group.id}`,
+                className: 'view-map',
+            }, 'view'),
+            SPAN({}, group.getData().name)
+        ));
 
 
 const render =
@@ -21,6 +28,7 @@ const render =
             DIV({ className: 'maps' },
                 H1({}, 'Maps'),
                 UL({},
+                    '> Public maps',
                     addMap,
                     ...groups)));
     };
